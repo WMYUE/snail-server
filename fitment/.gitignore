@@ -1,8 +1,9 @@
-#忽略条件
+﻿#忽略条件
 .class
 .jar
 target
 .settings
+.svn
 .classpath
 .project
 lib
@@ -11,3 +12,4 @@ class
 .idea/
 classes/
 class
+.properties
