@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.snail.fitment</groupId>
+		<artifactId>fitment-parent</artifactId>
+		<version>0.0.0.1-SNAPSHOT</version>
+		<relativePath>../fitment-parent/pom.xml</relativePath>
+	</parent>
+	<groupId>com.snail.fitment</groupId>
+	<artifactId>fitment-package</artifactId>
+	<version>${fitment.version}</version>
+	<packaging>pom</packaging>
+	<name>blue print package project</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.snail.fitment</groupId>
+			<artifactId>blueprint-net</artifactId>
+			<version>${fitment.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.snail.fitment</groupId>
+			<artifactId>fitment-operation-session</artifactId>
+			<version>${fitment.version}</version>
+		</dependency>
+	</dependencies>
+</project>

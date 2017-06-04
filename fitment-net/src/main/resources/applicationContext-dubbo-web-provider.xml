@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+	 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://code.alibabatech.com/schema/dubbo  http://code.alibabatech.com/schema/dubbo/dubbo.xsd" 	
+	default-lazy-init="true">
+	
+	<description>dubbo 配置文件 for web </description>
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="lanxin-blueprint-service-provider" />
+
+	<!-- 用dubbo协议在1235端口暴露服务 -->
+	<dubbo:protocol name="dubbo" port="${dubbo.protocol.port}" serialization="java" payload="209715200"/>
+	<!-- 使用zookeeper作为注册中心 -->
+	<dubbo:registry protocol="zookeeper" address="${zookeeper.server}" file="/opt/lanxin/cache/bpserver/service-dubbo.cache"/>
+
+	<dubbo:monitor protocol="registry" />
+
+	<dubbo:consumer check="false" />
+	<!-- 半分钟 -->
+	<dubbo:provider timeout="30000" />
+	<!-- 作为生产者提供的bean -->
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.session.ISessionManager" 
+		ref="sessionManager"/>
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.runtime.IRuntimeManager" 
+		ref="runtimeManager"/>
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.application.IAppAuthRecordManager" 
+		ref="appAuthRecordManager"/>
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.application.IAppGrantRecordManager" 
+	ref="appGrantRecordManager"/>
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.permission.IPermissionManager"
+		ref="permissionManager" />
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.application.IAppPushOperateRecordManager"
+		ref="appPushOperateRecordManager" />
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.permission.IRoleManager"
+		ref="roleManager" />
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.data.IImportThirdPartDataService"
+		ref="importSalaryDataServiceImpl" />	
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.data.IDataService"
+		ref="dataServiceImpl" />		
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.application.IAppCategoryManager"
+		ref="appCategoryManager" />	
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.application.IAppPubInfoManager"
+		ref="appPubInfoManager" />
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.organization.IExternalOrganizationManager"
+		ref="externalOrganizationManager" />
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.organization.IProvinceCityAreaManager"
+		ref="ProvinceCityAreaManager" />
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.organization.ITradeManager"
+		ref="TradeManager" />
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.application.IApplicationInfoManager"
+		ref="applicationInfoManager" />	
+		
+	<dubbo:service group="web-rw"  interface="com.comisys.lanxin.blueprint.api.resource.IResourceService" 
+	    ref="resourceServiceImpl" />  
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.application.IAppConfigRecordManager" 
+		ref="appConfigRecordManager"/>
+			
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.userinfo.IUserService"
+		ref="userServiceImpl" />
+		
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.authorize.IThirdPartAuthService"
+	    ref="bluePrintAuthServiceImpl" />
+	    
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.application.config.IBpConfigManager"
+	    ref="bpConfigManager" />
+	    
+	<!-- <dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.config.IDomainConfigService"
+	    ref="domainConfigService" /> -->
+	    
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.log.ILogService"
+	    ref="logService" />
+	    
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.hosts.IOpenService"
+	    ref="${openservice.proxy}" />
+	    
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.authorize.IBlueprintAuthTagService"
+		ref="blueprintAuthTagService" />
+			
+	<dubbo:service group="web-rw" interface="com.comisys.lanxin.blueprint.api.behavior.IBehaviorRecordService"
+		ref="behaviorRecordService" />	
+</beans>

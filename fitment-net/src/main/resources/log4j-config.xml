@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS}] [%-5p] [%t] %c{3} - %m%n"/>
+		</layout>
+	</appender>
+	
+	<appender name="file_appender" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="/opt/lanxin/logs/bpserver/trace.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd-HH" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS}] [%-5p] [%t] [%x] %c{3} - %m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="profiler_appender" class="org.apache.log4j.DailyRollingFileAppender">
+         <param name="File" value="/opt/lanxin/logs/bpserver/profiler.log" />
+         <param name="DatePattern" value="'.'yyyy-MM-dd" />
+         <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS}] [%-5p] [%t] [%x] %c{3} - %m%n" />
+         </layout>
+    </appender>
+    
+    <!-- 远程日志输出到Logstash -->
+    <appender name="remote_file" class="org.apache.log4j.net.SocketAppender">
+        <param name="remoteHost" value="192.168.7.26" /><!-- 这是远程log server -->
+        <param name="port" value="4567" /><!-- 这是远程log server port -->
+        <param name="Threshold" value="INFO" /><!-- log 级别 -->
+        <param name="ReconnectionDelay" value="1000" />
+        <param name="LocationInfo" value="true" />
+        <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern" value="[%d{dd HH:mm:ss,SSS}] [%-5p] [%t] [%x] %c{3} - %m%n" />
+         </layout>
+    </appender>
+	
+	<!-- 以下为标准日志配置 -->
+	<category name="com.comisys.lanxin.blueprint.service">
+		<level value="debug" />
+	</category>
+	<category name="com.comisys.lanxin.blueprint.databus">
+		<level value="debug" />
+	</category>
+	<category name="com.comisys.lanxin.blueprint.protocol">
+		<level value="info" />
+	</category>
+    <category name="mapper">
+         <level value="debug" />
+    </category>
+    <category name="com.comisys.lanxin.blueprint.database.mysql.dao.service">
+         <level value="debug" />
+    </category>
+    <category name="org.springframework.aop.framework.Cglib2AopProxy">
+    	<level value="error" />
+    </category>     
+    
+    <!-- 以下为行为日志配置 -->
+    <category name="com.comisys.lanxin.blueprint.behavior">
+		<level value="debug" />
+	</category>    
+        
+    <!-- 以下为SQL日志配置 -->    
+	<category name="java.sql.Connection">
+		<level value="debug" />
+	</category>
+	<category name="java.sql.Statement">
+		<level value="debug" />
+	</category>
+	
+	<!-- 以下为性能统计日志配置 -->
+    <category name="com.comisys.lanxin.blueprint.common.profile" additivity="false">
+        <level value="info" />
+        <appender-ref ref="profiler_appender" />
+    </category>
+    <category name="com.comisys.lanxin.blueprint.protocol.setup.StartNioServer" additivity="false">
+    	<level value="info" />
+		<appender-ref ref="profiler_appender" />
+	</category>
+     
+	<root>
+		<level value="debug" />
+		<appender-ref ref="file_appender" />
+		<appender-ref ref="stdout" />
+	</root>
+</log4j:configuration>

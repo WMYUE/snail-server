@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.snail.fitment</groupId>
+		<artifactId>fitment-parent</artifactId>
+		<version>0.0.0.1-SNAPSHOT</version>
+		<relativePath>../fitment-parent/pom.xml</relativePath>
+	</parent>
+  <artifactId>fitment-register</artifactId>
+  <name>fitment-register</name>
+  <url>http://maven.apache.org</url>
+	
+  <dependencies>
+   	<dependency>
+		<groupId>com.snail.fitment</groupId>
+		<artifactId>fitment-common</artifactId>
+		<version>${fitment.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.snail.fitment</groupId>
+		<artifactId>fitment-config</artifactId>
+		<version>${fitment.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.zookeeper</groupId>
+		<artifactId>zookeeper</artifactId>
+		<version>3.4.6</version>
+	</dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

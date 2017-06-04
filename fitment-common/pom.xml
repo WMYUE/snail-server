@@ -1,20 +1,21 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.snail.fitment</groupId>
-    <artifactId>fitment-parent</artifactId>
-    <version>0.0.0.1-SNAPSHOT</version>
-    <relativePath>../fitment-parent/pom.xml</relativePath>
-  </parent>
-  
-  <artifactId>fitment-common</artifactId>
-  <packaging>jar</packaging>
-  <name>fitment-common</name>
-  <url>http://maven.apache.org</url>
-  
-  <dependencies>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.snail.fitment</groupId>
+		<artifactId>fitment-parent</artifactId>
+		<version>0.0.0.1-SNAPSHOT</version>
+		<relativePath>../fitment-parent/pom.xml</relativePath>
+	</parent>
+
+	<artifactId>fitment-common</artifactId>
+	<packaging>jar</packaging>
+	<name>fitment-common</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -51,6 +52,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>commons-configuration</groupId>
 			<artifactId>commons-configuration</artifactId>
 			<version>1.9</version>
@@ -60,7 +66,7 @@
 			<groupId>commons-collections</groupId>
 			<artifactId>commons-collections</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
@@ -106,7 +112,7 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>apache-xerces</groupId>
+			<groupId>xerces</groupId>
 			<artifactId>xercesImpl</artifactId>
 			<version>2.9.1</version>
 		</dependency>
@@ -123,7 +129,7 @@
 			<artifactId>jedis</artifactId>
 			<version>2.2.1</version>
 		</dependency>
-		
+
 		<!-- kafka -->
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
@@ -154,22 +160,27 @@
 
 		<!-- json -->
 		<dependency>
-			  <groupId>org.codehaus.jackson</groupId>
-			  <artifactId>jackson-core-asl</artifactId>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
 		</dependency>
 		<dependency>
-			  <groupId>org.codehaus.jackson</groupId>
-			  <artifactId>jackson-mapper-asl</artifactId>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
 		</dependency>
-		
+
 		<!-- javassist -->
 		<dependency>
 			<groupId>org.javassist</groupId>
 			<artifactId>javassist</artifactId>
 			<version>3.19.0-GA</version>
 		</dependency>
-	
-	
+
+		<!-- sql parser -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+		</dependency>
+		
 		<!-- javaMail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -177,5 +188,5 @@
 			<version>1.4.7</version>
 		</dependency>
 	</dependencies>
-  
+
 </project>

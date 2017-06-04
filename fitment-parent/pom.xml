@@ -1,14 +1,15 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.snail.fitment</groupId>
-  <artifactId>fitment-parent</artifactId>
-  <version>0.0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  
-  <properties>
+	<groupId>com.snail.fitment</groupId>
+	<artifactId>fitment-parent</artifactId>
+	<version>0.0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
 		<spring.version>4.1.4.RELEASE</spring.version>
 		<fitment.version>0.0.0.1-SNAPSHOT</fitment.version>
 		<java.version>1.8</java.version>
@@ -19,22 +20,22 @@
 		<mybatis.spring.version>1.2.0</mybatis.spring.version>
 		<maven-surefire-plugin.skip>true</maven-surefire-plugin.skip>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  
-  <distributionManagement>
-		<repository> 
-		    <id>releases</id> 
-		    <name>Internal Releases</name> 
-		    <url>http://repos.comisys.net/nexus/content/repositories/releases/</url>
-		</repository> 
-		<snapshotRepository> 
-		    <id>snapshots</id> 
-		    <name>Internal snapshots</name> 
-		    <url>http://repos.comisys.net/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository> 
-  </distributionManagement>
-  
- 	<dependencyManagement>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Internal Releases</name>
+			<url>http://repos.comisys.net/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>Internal snapshots</name>
+			<url>http://repos.comisys.net/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencyManagement>
 		<dependencies>
 			<!-- spring begin -->
 			<dependency>
@@ -89,11 +90,11 @@
 				<version>2.2</version>
 			</dependency>
 			<!-- spring end -->
-			<!-- netty-->
+			<!-- netty -->
 			<dependency>
-			    <groupId>io.netty</groupId>
-			    <artifactId>netty-all</artifactId>
-			    <version>${netty.version}</version>
+				<groupId>io.netty</groupId>
+				<artifactId>netty-all</artifactId>
+				<version>${netty.version}</version>
 			</dependency>
 			<!-- Spring data mongodb -->
 			<dependency>
@@ -115,11 +116,11 @@
 			</dependency>
 			<!-- MYSQL -->
 			<dependency>
-				<groupId>com.mysql</groupId>
+				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>
 				<version>5.1.15</version>
 			</dependency>
-			<!-- AspectJ-->
+			<!-- AspectJ -->
 			<dependency>
 				<groupId>org.aspectj</groupId>
 				<artifactId>aspectjweaver</artifactId>
@@ -130,7 +131,7 @@
 				<artifactId>aspectjrt</artifactId>
 				<version>${aspectj.version}</version>
 			</dependency>
-			
+
 			<!-- Dubbo -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -151,30 +152,30 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
-			
-			<!-- json unit-->
+
+			<!-- json unit -->
 			<dependency>
-			  <groupId>org.codehaus.jackson</groupId>
-			  <artifactId>jackson-core-asl</artifactId>
-			  <version>1.7.4</version>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-core-asl</artifactId>
+				<version>1.7.4</version>
 			</dependency>
 			<dependency>
-			  <groupId>org.codehaus.jackson</groupId>
-			  <artifactId>jackson-mapper-asl</artifactId>
-			  <version>1.7.4</version>
-			  <exclusions>
-			  	<exclusion>
-			  		<groupId>org.codehaus.jackson</groupId>
-			  		<artifactId>jackson-core-asl</artifactId>
-			  	</exclusion>
-			  </exclusions>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-asl</artifactId>
+				<version>1.7.4</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.codehaus.jackson</groupId>
+						<artifactId>jackson-core-asl</artifactId>
+					</exclusion>
+				</exclusions>
 			</dependency>
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>fastjson</artifactId>
 				<version>1.1.15</version>
-			</dependency>			
-			
+			</dependency>
+
 			<!-- utils -->
 			<dependency>
 				<groupId>commons-beanutils</groupId>
@@ -226,7 +227,14 @@
 				<groupId>com.google.code.gson</groupId>
 				<artifactId>gson</artifactId>
 				<version>2.2.2</version>
-			</dependency>						
+			</dependency>
+
+			<!-- sql parser -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>1.0.18</version>
+			</dependency>
 			<!-- logging unit -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -264,9 +272,9 @@
 						<artifactId>oro</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency>		
-			
-			<!-- test units-->
+			</dependency>
+
+			<!-- test units -->
 			<dependency>
 				<groupId>org.easymock</groupId>
 				<artifactId>easymock</artifactId>
@@ -310,10 +318,10 @@
 				<scope>test</scope>
 			</dependency>
 			<dependency>
-			  <groupId>junit</groupId>
-			  <artifactId>junit</artifactId>
-			  <version>3.8.1</version>
-			  <scope>test</scope>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>3.8.1</version>
+				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -337,7 +345,7 @@
 				<directory>${basedir}/src/test/resources</directory>
 			</testResource>
 		</testResources>
-	
+
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -399,7 +407,7 @@
 					</configuration>
 				</plugin>
 
-				<!-- resource-->
+				<!-- resource -->
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-resources-plugin</artifactId>
